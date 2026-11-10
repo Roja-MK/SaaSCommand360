@@ -1,0 +1,24 @@
+﻿# Data generation and processing
+Faker==40.44.0
+pandas==2.3.3
+
+# PostgreSQL connectivity
+psycopg2-binary==2.9.13
+python-dotenv==1.2.4
+
+# PySpark and Parquet
+pyspark==4.3.0
+pyarrow==26.0.1
+
+# Analytical database
+duckdb==2.0.0
+
+# dbt transformation
+dbt-core==1.12.6
+dbt-duckdb==1.11.1
+
+# Workflow orchestration
+prefect==3.9.2
+
+# AWS S3 scripts
+boto3==1.43.126

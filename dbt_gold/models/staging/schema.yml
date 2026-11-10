@@ -1,0 +1,87 @@
+
+version: 2
+
+models:
+  - name: stg_accounts
+    columns:
+      - name: account_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_users
+    columns:
+      - name: user_id
+        data_tests:
+          - unique
+          - not_null
+      - name: account_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_accounts')
+                field: account_id
+
+  - name: stg_subscriptions
+    columns:
+      - name: subscription_id
+        data_tests:
+          - unique
+          - not_null
+      - name: account_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_accounts')
+                field: account_id
+
+  - name: stg_invoices
+    columns:
+      - name: invoice_id
+        data_tests:
+          - unique
+          - not_null
+      - name: account_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_accounts')
+                field: account_id
+      - name: subscription_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_subscriptions')
+                field: subscription_id
+
+  - name: stg_support_tickets
+    columns:
+      - name: ticket_id
+        data_tests:
+          - unique
+          - not_null
+      - name: account_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_accounts')
+                field: account_id
+
+  - name: stg_product_events
+    columns:
+      - name: event_id
+        data_tests:
+          - unique
+          - not_null
+      - name: user_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_users')
+                field: user_id

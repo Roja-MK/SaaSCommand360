@@ -1,0 +1,44 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+venv/
+.venv/
+prefect_env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# dbt generated files
+target/
+dbt_packages/
+logs/
+
+# Local DuckDB databases
+*.duckdb
+*.duckdb.wal
+
+# Generated datasets
+data/raw/
+data/processed/
+data/silver/
+data/dev/raw/
+data/dev/silver/
+
+# Database backups
+backups/
+
+# Runtime logs and generated inspection files
+*.log
+bronze_inspection_log.txt
+business_validation_log.txt
+silver_file_list.txt
+
+# Temporary files
+*.tmp
+*.bak
+.DS_Store
