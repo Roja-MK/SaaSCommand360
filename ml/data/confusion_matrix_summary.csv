@@ -1,0 +1,4 @@
+Model,True Positives,True Negatives,False Positives,False Negatives
+Dummy Classifier,0,55,0,11
+Logistic Regression,7,17,38,4
+Random Forest,3,41,14,8

@@ -309,9 +309,72 @@ The development pipeline has been successfully executed and validated.
 - Orchestrating multi-step workflows using Prefect.
 - Implementing data validation and quality checks.
 
+## Machine Learning – Customer Churn Prediction
+
+SaaSCommand360 also includes a machine learning workflow to identify SaaS subscriptions that may be at risk of customer churn.
+
+### Churn Prediction Workflow
+
+1. Extract subscription, invoice, support ticket, and product usage features.
+2. Engineer additional features such as overdue invoice ratio and open ticket ratio.
+3. Prepare the dataset for machine learning.
+4. Split training and testing data using account-level grouping to prevent account overlap.
+5. Train and compare classification models.
+6. Evaluate models using precision, recall, F1-score, ROC-AUC, and PR-AUC.
+7. Save the selected model and generate churn predictions.
+
+### Machine Learning Models
+
+- Dummy Classifier
+- Logistic Regression
+- Random Forest
+
+Logistic Regression is the provisional selection for recall-oriented churn detection.
+
+The model evaluation uses a separate holdout dataset. Current results indicate that further model improvement is needed, particularly to reduce false positives.
+
+### Model Evaluation
+
+The model evaluation includes:
+
+- Confusion matrices
+- ROC curves
+- Precision-recall curves
+- Feature importance analysis
+- Model performance comparison
+
+Generated reports and visualizations are stored in:
+
+- `ml/reports/`
+- `ml/plots/`
+- `ml/data/`
+
+### Streamlit Dashboard
+
+An interactive Streamlit dashboard provides five sections:
+
+1. Overview
+2. Churn Analysis
+3. Model Performance
+4. Feature Importance
+5. Prediction Details
+
+To launch the dashboard:
+
+```powershell
+python -m streamlit run dashboard/app.py
+```
+
+### Important Evaluation Note
+
+Predictions generated for the historical feature dataset are in-sample predictions. They should not be confused with independent holdout evaluation results.
+
 ## Future Enhancements
 
-- Build an interactive analytics dashboard.
+## Future Enhancements
+
+- Improve churn prediction performance and reduce false positives.
+- Generate predictions for new subscription records.
 - Add more advanced data quality checks.
 - Implement incremental data processing.
 - Add pipeline monitoring and failure notifications.
